@@ -22,4 +22,8 @@ class Plane
 		@status == "Flying"
 	end
 
+	def has_landed?
+		@status == "Landed"
+	end
+
 end

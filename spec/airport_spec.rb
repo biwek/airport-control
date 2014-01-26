@@ -2,7 +2,8 @@ require_relative '../lib/airport'
 
 describe Airport do  
 
-	let(:airport) {Airport.new}
+	let(:airport) { Airport.new }
+	let(:plane) { double :plane }
 
 	def fill_airport(plane)
 		airport.capacity.times { airport.plane_landed(plane)}
@@ -14,7 +15,6 @@ describe Airport do
 		end
 
 		it "should contain a plane after it has landed" do 
-			plane = double :plane
 			airport.stub(:weather_condition).and_return(:sunny)
 			airport.plane_landed(plane)
 			expect(airport).to have_plane
@@ -22,7 +22,6 @@ describe Airport do
 		end
 
 		it "should not contain a plane after it has taken off" do 
-			plane = double :plane
 			airport.stub(:weather_condition).and_return(:sunny)
 			airport.plane_landed(plane)
 			airport.plane_taken_off(plane)
@@ -34,7 +33,6 @@ describe Airport do
 	context "Traffic Control" do  
 		
 		it "should not allow plane to land if full" do 
-			plane = double :plane
 			airport.stub(:weather_condition).and_return(:sunny)
 			fill_airport(plane)
 			expect { airport.plane_landed(plane) }.to raise_error("Sorry, Airport is FULL!!")
@@ -43,7 +41,6 @@ describe Airport do
 		context "Weather Conditions" do
 
 			it "should not take off if weather is stormy" do  
-				plane = double :plane
 				airport.stub(:weather_condition).and_return(:sunny)
 				fill_airport(plane)
 				airport.stub(:weather_condition).and_return(:stormy)
@@ -52,7 +49,6 @@ describe Airport do
 			end
 
 			it "should not land if weather is stormy" do 
-				plane = double :plane
 				airport.stub(:weather_condition).and_return(:stormy)
 				expect { airport.plane_landed(plane) }.to raise_error("ALERT - BAD WEATHER. DO NOT LAND")
 				expect(airport.plane.count).to eq(0)

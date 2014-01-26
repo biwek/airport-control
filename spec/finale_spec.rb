@@ -17,7 +17,7 @@ describe "The Grand Finale" do
 					"Ready to land"
 				end
 			end
-			expect(plane.status).to eq("Landed")
+			expect(plane).to have_landed
 		end
 
 		expect(airport).to be_full
