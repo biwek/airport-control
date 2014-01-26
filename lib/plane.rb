@@ -8,7 +8,7 @@ class Plane
 		@status
 	end
 
-	def landed(airport)
+	def land(airport)
 		airport.plane_landed(self)
 		@status = "Landed"
 	end

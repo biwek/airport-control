@@ -16,7 +16,6 @@ describe Airport do
 		it "should contain a plane after it has landed" do 
 			plane = double :plane
 			airport.stub(:weather_condition).and_return(:sunny)
-			# expect(plane).to receive(:landed)
 			airport.plane_landed(plane)
 			expect(airport).to have_plane
 			expect(airport.plane.count).to eq(1)

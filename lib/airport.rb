@@ -31,7 +31,6 @@ class Airport
 		raise "Sorry, Airport is FULL!!" if full?
 		raise "ALERT - BAD WEATHER. DO NOT LAND" if weather_condition == :stormy
 		@plane << plane
-		# plane.landed(self)
 	end
 
 	def plane_taken_off(plane)
