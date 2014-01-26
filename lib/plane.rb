@@ -14,7 +14,7 @@ class Plane
 	end
 
 	def take_off(airport)
-		airport.plane_take_off(self)
+		airport.plane_taken_off(self)
 		@status = "Flying"
 	end
 

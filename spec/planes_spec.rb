@@ -27,7 +27,7 @@ describe Plane do
 		expect(airport).to receive(:plane_landed)
 		plane.land(airport)
 		expect(plane.status).to eq("Landed")
-		expect(airport).to receive(:plane_take_off)
+		expect(airport).to receive(:plane_taken_off)
 		plane.take_off(airport)
 		expect(plane.status).to eq("Flying")
 	end

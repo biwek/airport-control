@@ -59,8 +59,6 @@ describe Airport do
 			end
 
 		end
-
-
 	end
-
 end
+

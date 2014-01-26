@@ -6,17 +6,17 @@ class Airport
 
 	DEFAULT_CAPACITY = 10
 
-	def initialize(plane = [])
+	def initialize(arg = {})
 		@plane = plane
-		@capacity ||= DEFAULT_CAPACITY
+		self.capacity = arg.fetch(:capacity, DEFAULT_CAPACITY)
 	end
 
 	def plane
-		@plane
+		@plane ||= []
 	end
 
 	def capacity
-		@capacity
+		@capacity ||= DEFAULT_CAPACITY
 	end
 
 	def capacity=(value)
@@ -40,6 +40,17 @@ class Airport
 
 	def full?
 		@plane.count == @capacity
+	end
+
+
+	def full_take_off(plane)
+		while full?
+			if weather_condition == :stormy
+				raise "do not land"
+			elsif weather_condition == :sunny
+				plane.take_off(self)
+			end
+		end
 	end
 
 end
