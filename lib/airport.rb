@@ -42,16 +42,5 @@ class Airport
 		@plane.count == @capacity
 	end
 
-
-	def full_take_off(plane)
-		while full?
-			if weather_condition == :stormy
-				raise "do not land"
-			elsif weather_condition == :sunny
-				plane.take_off(self)
-			end
-		end
-	end
-
 end
 
