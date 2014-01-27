@@ -7,12 +7,13 @@ class Airport
 	DEFAULT_CAPACITY = 10
 
 	def initialize(arg = {})
-		@plane = plane
+		@plane = plane # this line is completely unnecessary, you're initialising @planes on line 16
 		self.capacity = arg.fetch(:capacity, DEFAULT_CAPACITY)
 	end
 
+	# this must be planes
 	def plane
-		@plane ||= []
+		@plane ||= [] # this must be @planes
 	end
 
 	def capacity
@@ -23,6 +24,7 @@ class Airport
 		@capacity = value
 	end
 
+	# This should be has_planes? because it checks whether the airport isn't empty
 	def has_plane?
 		!@plane.empty?
 	end
