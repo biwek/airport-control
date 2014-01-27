@@ -6,10 +6,11 @@ describe Plane do
 	let(:airport) { double :airport }
 
 	it "has a flying status when created" do 
-		expect(plane.status).to eq("Flying") # expect(plane).to be_in_the_air
+		expect(plane.status).to eq("Flying") 
 	end
 
 	it "has a flying status when in the air" do 
+		# these two are the same thing, prefer to use in_the_air? method instead of reading status
 		expect(plane).to be_in_the_air
 		expect(plane.status).to eq("Flying")
 	end
