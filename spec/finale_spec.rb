@@ -9,6 +9,7 @@ describe "The Grand Finale" do
 
 	it "all planes can land and all planes can take off" do
 
+		# Instead of having the loop, you could have stubbed the weather
 		sixplanes.each do |plane| 
 			while plane.status == "Flying"
 				begin
